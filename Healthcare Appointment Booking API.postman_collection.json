@@ -1,0 +1,248 @@
+{
+	"info": {
+		"_postman_id": "bd4bc72c-7e17-44d4-9f15-c0ec7ebe68e9",
+		"name": "Healthcare Appointment Booking API",
+		"description": "Postman collection for Healthcare Appointment Booking API (Laravel)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "548362"
+	},
+	"item": [
+		{
+			"name": "User Registration",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"vivek\",\r\n    \"email\": \"vivek@example.com\",\r\n    \"password\": \"Password\",\r\n    \"password_confirmation\": \"Password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}api/auth/register",
+					"host": [
+						"{{base_url}}api"
+					],
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"vivek@example.com\",\r\n    \"password\": \"Password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}api/auth/login",
+					"host": [
+						"{{base_url}}api"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Professionals",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 4|SFevarRE6JTuDYpjQVlhK26xzXDIlq3SWGzGzhz6e5b64e66",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}api/healthcare-professionals",
+					"host": [
+						"{{base_url}}api"
+					],
+					"path": [
+						"healthcare-professionals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Book Appointment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 4|SFevarRE6JTuDYpjQVlhK26xzXDIlq3SWGzGzhz6e5b64e66",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"healthcare_professional_id\": 1,\r\n\"appointment_start_time\": \"2025-10-15T10:00:00Z\",\r\n\"appointment_end_time\": \"2025-10-15T11:00:00Z\",\r\n\"notes\": \"Annual checkup\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}api/appointments",
+					"host": [
+						"{{base_url}}api"
+					],
+					"path": [
+						"appointments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Appointments",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 4|SFevarRE6JTuDYpjQVlhK26xzXDIlq3SWGzGzhz6e5b64e66",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}api/appointments",
+					"host": [
+						"{{base_url}}api"
+					],
+					"path": [
+						"appointments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cancel Appointment",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 4|SFevarRE6JTuDYpjQVlhK26xzXDIlq3SWGzGzhz6e5b64e66",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}api/appointments/1/cancel",
+					"host": [
+						"{{base_url}}api"
+					],
+					"path": [
+						"appointments",
+						"1",
+						"cancel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mark Completed",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 4|SFevarRE6JTuDYpjQVlhK26xzXDIlq3SWGzGzhz6e5b64e66",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}api/appointments/1/complete",
+					"host": [
+						"{{base_url}}api"
+					],
+					"path": [
+						"appointments",
+						"1",
+						"complete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 7|R7t1DsCsOVcjsp4dqK1SCagDjNVHbbl7C0sCQVnkdc71affe",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{base_url}}api/auth/logout",
+					"host": [
+						"{{base_url}}api"
+					],
+					"path": [
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:8000"
+		},
+		{
+			"key": "token",
+			"value": ""
+		}
+	]
+}
